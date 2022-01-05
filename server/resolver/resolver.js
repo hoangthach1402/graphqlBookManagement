@@ -1,4 +1,4 @@
-const { books, authors } = require('../data/static')
+// const { books, authors } = require('../data/static')
 const Author = require('../models/Author')
 const Book = require('../models/Book')
 
@@ -7,19 +7,26 @@ const resolvers = {
   Query: {
     books: async (parent, args, { mongooseDataMethods }) =>
       await mongooseDataMethods.getAllBooks(),
-    book: (parent, args) => books.find((book) => book.id == args.id),
+    book: async (parent, { id }, { mongooseDataMethods }) =>
+      await mongooseDataMethods.getBook(id),
     authors: async (parent, args, { mongooseDataMethods }) =>
       await mongooseDataMethods.getAllAuthors(),
-    author: (parent, args) => authors.find((author) => author.id == args.id),
+    author: async (parent, { id }, { mongooseDataMethods }) =>
+      await mongooseDataMethods.getAuthorById(id),
   },
   Book: {
-    author: (parent, args) => {
-      return authors.find((author) => author.id == parent.authorId)
+    author: async ({ authorId }, args, { mongooseDataMethods }) => {
+      const result = await mongooseDataMethods.getAuthorById(authorId)
+      console.log(result)
+      return result
+      // console.log(authorId)
     },
   },
   Author: {
-    books: (parent, args) => {
-      return books.filter((book) => book.authorId == parent.id)
+    books: async ({ _id }, args, { mongooseDataMethods }) => {
+      const result = await mongooseDataMethods.getAllBooks({ authorId: _id })
+      // console.log(parent)
+      return result
     },
   },
   //   MUTATION
