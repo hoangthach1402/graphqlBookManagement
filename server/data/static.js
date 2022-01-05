@@ -1,14 +1,17 @@
 const books = [
   {
     id: 1,
-    name: 'De men phieu luu ky',
-    genre: 'Adventure',
+    name: 'Tat den',
+    genre: 'Tieu thuyet',
+    authorId: 1,
   },
   {
     id: 2,
-    name: 'Lam giau khong kho',
-    genre: 'Education',
+    name: 'Chi pheo',
+    genre: 'Truyen ngan',
+    authorId: 2,
   },
+  { id: 3, name: 'So do', genre: 'Tieu Thuyet', authorId: 3 },
 ]
 const authors = [
   {
