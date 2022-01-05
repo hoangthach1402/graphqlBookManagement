@@ -12,6 +12,8 @@ const books = [
     authorId: 2,
   },
   { id: 3, name: 'So do', genre: 'Tieu Thuyet', authorId: 3 },
+  { id: 4, name: 'Con rong chau tien', genre: 'Tieu Thuyet', authorId: 3 },
+  { id: 4, name: 'Day con lam giau', genre: 'Tieu Thuyet', authorId: 3 },
 ]
 const authors = [
   {
