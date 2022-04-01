@@ -10,7 +10,7 @@ const resolvers = require('./resolver/resolver')
 const mongooseDataMethods = require('./data/db')
 // Conenct to mongoose
 const MONGO_URI =
-  'mongodb+srv://hoangthach1402:hoangthach123@tutorialgraphql.u1wdy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+  'mongodb+srv://hoangthach1402:hoangthach123@cluster0.mmtet.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const connectDB = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
